@@ -13,3 +13,45 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role{
+  ADMIN 
+  CUSTOMER 
+}
+
+model User{
+  userId String @id @default(uuid())
+  username String @unique
+  password String
+  role Role
+  isActive Boolean
+  createdAt DateTime
+  updatedAt DateTime
+  userDetail UserDetails? @relation()
+}
+
+model UserDetails{
+  userDetailId String @id @default(uuid())
+  userId String @unique
+  user User @relation(fields: [userId], references: [userId])
+  firstName String
+  lastName String
+  contact String
+  address String
+  email String @unique
+}
+
+model Product{
+  productId String @id @default(uuid())
+  name String
+  price Decimal @db.Decimal(10,2)
+  stockQuantity Int
+  createdAt DateTime
+  categoryId String
+  category Category @relation(fields: [categoryId], references: [categoryId])
+}
+
+model Category{
+  categoryId String @id @default(uuid())
+  name String
+  product Product[]
+}

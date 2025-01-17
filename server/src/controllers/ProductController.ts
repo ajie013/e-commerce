@@ -6,6 +6,7 @@ import express, {Request, Response} from 'express'
 const getProductList = async (req: Request, res: Response) =>{
     try{
         const result = await getProductListServ();
+      
         res.status(200).json(result)
     }
     catch(err){

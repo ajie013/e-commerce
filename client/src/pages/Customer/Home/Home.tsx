@@ -9,15 +9,25 @@ interface productType{
     productId: string;
     stockQuantity: number;
     createdAt: Date;
-
+    imageData: string
+    category: {categoryId: string, categoryName: string}
 }
+
 const Home: React.FC = () =>{
 
-    const [productList, setProductList] = useState();
+    const [productList, setProductList] = useState<productType[]>([]);
     const fetchProduct =  async () =>{
-        const response = await axios.get('http://localhost:3001/product-list')
-        console.log(response.data)
+        try{
+            const response = await axios.get('http://localhost:3001/product-list')
+            setProductList(response.data)
+        }
+        catch(error){
+            console.log(error)
+        }  
+        
     };
+
+    console.log(productList)
 
     useEffect(() =>{
         fetchProduct();
@@ -27,6 +37,7 @@ const Home: React.FC = () =>{
     return(
         <>
             <h1>Home page Customer</h1>
+           
         </>
     )
 }

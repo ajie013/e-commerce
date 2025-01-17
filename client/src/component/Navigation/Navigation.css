@@ -48,6 +48,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     color: white;
+    letter-spacing: 2px;
 }
 
 .navigation-container ul li a:hover:not(.active-link) {

@@ -6,37 +6,36 @@
     /* background-color: rgb(240, 240, 240); */
 }
 
-.sign-up-wrapper {
+.sign-up-container .sign-up-wrapper {
     display: block;
     margin: 0 auto;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 30px 20px;
+    padding: 10px 20px;
     width: 100%;
     max-width: 400px;
     text-align: center;
 }
 
-.sign-up-header {
+.sign-up-container .sign-up-header {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 21px;
     color: black;
 }
 
-form {
+.sign-up-container form {
     display: flex;
     flex-direction: column;
 }
-form .row{
+.sign-up-container form .row{
     display: flex;
-    gap: 10px;
     justify-content: space-between;
 }
 
 
-form label {
+.sign-up-container form label {
     font-size: 14px;
     font-weight: bold;
     color: black;
@@ -45,21 +44,21 @@ form label {
     margin-bottom: 5px;
 }
 
-form input {
-    padding: 10px;
+.sign-up-container form input {
+    padding: 8px;
     border: 1px solid rgb(200, 200, 200);
     border-radius: 5px;
     margin-bottom: 5px;
    
 }
 
-form input:focus {
+.sign-up-container form input:focus {
     outline: none;
     border-color: black;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.submit-sign-up-btn {
+.sign-up-container .submit-sign-up-btn {
     margin-top: 10px;
     padding: 10px;
     font-size: 1rem;
@@ -72,7 +71,7 @@ form input:focus {
     transition: background-color 0.3s ease;
 }
 
-.submit-sign-up-btn:hover {
+.sign-up-container  .submit-sign-up-btn:hover {
     background-color: rgb(50, 50, 50);
 }
 

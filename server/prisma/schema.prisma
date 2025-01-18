@@ -44,7 +44,7 @@ model userdetails {
   lastName     String
   contact      String
   address      String
-  imageData    String
+  imageData    String?
   email        String @unique(map: "UserDetails_email_key")
   user         user   @relation(fields: [userId], references: [userId], map: "UserDetails_userId_fkey")
 }

@@ -4,7 +4,10 @@ import path from 'path'
 import multer from 'multer'
 import productRouter from './src/routes/ProductRouter'
 import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient();
+import logger from './src/middleware/logger'
+import authRouter from './src/routes/AuthRouter'
+
+
 const app = express()
 const PORT = 3001
 
@@ -12,13 +15,10 @@ app.use(cors({
     origin: 'http://localhost:5173',
     methods: ['GET', 'POST']
 }));
+app.use(express.json());
+
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-enum user_role {
-    ADMIN,
-    CUSTOMER
-}
-  
 
 // const storage = multer.diskStorage({
     
@@ -33,8 +33,9 @@ enum user_role {
 // })
   
 // const upload = multer({ storage })
-
+app.use(logger)
 app.use(productRouter)
+app.use(authRouter)
 
 app.listen(PORT, () =>{
     console.log(`Server is running at ${PORT}`)

@@ -64,8 +64,25 @@ const Navigation = () => {
                 </motion.li>
                 </ul>
             </div>
-            <div className='profile-wrapper'>
-                <p>profile</p>
+            <div className='right-section'>
+                <ul>
+                
+                <motion.li
+                   >
+                    <NavLink to="/login" >
+                        Log in
+                    </NavLink>
+                </motion.li>
+
+                <motion.li
+                    >
+                    <NavLink to="/sign-up">
+                        Sign in
+                    </NavLink>
+                </motion.li>
+
+               
+                </ul>
             </div>
         </motion.div>
     );

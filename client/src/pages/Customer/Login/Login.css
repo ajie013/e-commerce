@@ -1,0 +1,96 @@
+.login-container {
+    /* height: 100vh; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(240, 240, 240); */
+}
+
+.login-container .login-wrapper {
+    display: block;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px 20px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.login-container .login-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container form label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: black;
+    text-align: left;
+}
+
+.login-container form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-container form input:focus {
+    outline: none;
+    border-color: black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-container p a {
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+    margin-bottom: 15px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.login-container p a:hover {
+    color: rgb(80, 80, 80);
+}
+
+.login-container .submit-login-btn {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container .submit-login-btn:hover {
+    background-color: rgb(50, 50, 50);
+}
+/* 
+@media screen and (max-width: 480px) {
+    .login-container .login-wrapper {
+        padding: 20px;
+    }
+
+    .login-container .login-header {
+        font-size: 20px;
+    }
+
+    .login-container form input, .submit-login-btn {
+        font-size: 14px;
+    }
+} */

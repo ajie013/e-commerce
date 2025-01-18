@@ -1,7 +1,9 @@
 import './Shop.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import formatToPHP from '../../../utils/formatToPhp';
+import formatToPHP from '../../../utils/formatToPHP';
+import { p } from 'framer-motion/client';
+
 interface ProductType {
     productName: string;
     categoryName: string;
@@ -32,7 +34,7 @@ const Shop: React.FC = () => {
     return (
         <div className="shop-container">
             <div className="product-list-grid">
-                {productList.map((item) => (
+                {productList.length > 0 ? productList.map((item) => (
                     <div key={item.productId} className="product-item">
                         <div className="product-image-wrapper">
                             <img src={item.imageData} alt={item.productName} />
@@ -40,7 +42,7 @@ const Shop: React.FC = () => {
                         <span className="product-name">{item.productName}</span>
                         <span className="product-price">{formatToPHP(item.price)}</span>
                     </div>
-                ))}
+                )): <p>No data...</p>}
             </div>
         </div>
     );

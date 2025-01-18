@@ -8,13 +8,13 @@ datasource db {
 }
 
 model category {
-  categoryId   String    @id
+  categoryId   String    @id @default(uuid())
   categoryName String?   @db.VarChar(255)
   product      product[]
 }
 
 model product {
-  productId     String   @id
+  productId     String   @id  @default(uuid())
   productName   String?  @db.VarChar(255)
   price         Decimal  @db.Decimal(10, 2)
   stockQuantity Int
@@ -27,10 +27,10 @@ model product {
 }
 
 model user {
-  userId      String       @id
+  userId      String       @id  @default(uuid())
   username    String       @unique(map: "User_username_key")
   password    String
-  role        user_role
+  role        String
   isActive    Boolean
   createdAt   DateTime
   updatedAt   DateTime
@@ -38,17 +38,14 @@ model user {
 }
 
 model userdetails {
-  userDetailId String @id
+  userDetailId String @id  @default(uuid())
   userId       String @unique(map: "UserDetails_userId_key")
   firstName    String
   lastName     String
   contact      String
   address      String
+  imageData    String
   email        String @unique(map: "UserDetails_email_key")
   user         user   @relation(fields: [userId], references: [userId], map: "UserDetails_userId_fkey")
 }
 
-enum user_role {
-  ADMIN
-  CUSTOMER
-}

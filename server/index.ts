@@ -3,7 +3,8 @@ import cors from 'cors'
 import path from 'path'
 import multer from 'multer'
 import productRouter from './src/routes/ProductRouter'
-
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient();
 const app = express()
 const PORT = 3001
 
@@ -13,6 +14,11 @@ app.use(cors({
 }));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+enum user_role {
+    ADMIN,
+    CUSTOMER
+}
+  
 
 // const storage = multer.diskStorage({
     

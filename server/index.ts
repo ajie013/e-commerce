@@ -5,7 +5,9 @@ import multer from 'multer'
 import productRouter from './src/routes/ProductRouter'
 import { PrismaClient } from '@prisma/client'
 import logger from './src/middleware/logger'
+import cookieParser from 'cookie-parser'
 import authRouter from './src/routes/AuthRouter'
+import userRouter from './src/routes/UserRouter'
 
 
 const app = express()
@@ -13,8 +15,10 @@ const PORT = 3001
 
 app.use(cors({
     origin: 'http://localhost:5173',
-    methods: ['GET', 'POST']
+    methods: ["POST", 'GET','PUT', 'DELETE'],
+    credentials: true
 }));
+app.use(cookieParser())
 app.use(express.json());
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
@@ -33,7 +37,9 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 // })
   
 // const upload = multer({ storage })
+
 app.use(logger)
+app.use(userRouter)
 app.use(productRouter)
 app.use(authRouter)
 

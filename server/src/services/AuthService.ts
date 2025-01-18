@@ -1,5 +1,9 @@
 import prisma from "../config/dbConfig";
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 interface userDetailsType{
     firstName: string
@@ -53,4 +57,35 @@ const createCustomerServ = async (details: userDetailsType) =>{
     })
 }
 
-export { createCustomerServ}
+interface loginCredentialType{
+    username: string;
+    password: string
+}
+
+const secretKey = process.env.MY_TOKEN || "secret_tooken";
+
+const loginAccountServ = async (credentials: loginCredentialType) =>{
+    const isUsernameExist = await prisma.user.findUnique({
+        where: {username: credentials.username}
+    });
+
+    if(!isUsernameExist){
+        throw new Error("Not Exist");
+    }
+
+    const isMatch = await bcrypt.compare(credentials.password.toString(), isUsernameExist.password);
+    if(isMatch){
+        const payload = {
+            userId: isUsernameExist.userId,
+            role: isUsernameExist.role
+        };
+
+        const token = jwt.sign(payload, secretKey , {expiresIn: '1d'});
+        return token; 
+    }
+    else{
+        throw new Error("Not Match");
+    }
+}
+
+export { createCustomerServ,loginAccountServ}

@@ -1,8 +1,57 @@
 import './Navigation.css';
 import { NavLink } from 'react-router-dom';
 import {motion} from 'framer-motion'
+import { jwtDecode } from 'jwt-decode';
+import Cookies from 'js-cookie'
+import { useEffect,useState } from 'react';
+import axios from 'axios';
+
+
+interface userType{
+    userId : string
+    role : string
+}
 
 const Navigation = () => {
+    const [currentUser, setCurrentUser] = useState<string>('');
+    // console.log(currentUser)
+    const [data, setData] = useState();
+    console.log(data)
+    useEffect(() => {
+        const token = Cookies.get('token');
+        if (token) {
+            try {
+                
+                const decoded = jwtDecode<userType>(token);
+                setCurrentUser (decoded.userId);
+            } catch (error) {
+                console.error('Failed to decode token:', error);
+            }
+        } else {
+            console.log('Token not found');
+        }
+    }, []);
+    
+
+    const fetchData = () =>{
+        if(currentUser){
+            axios.get(`http://localhost:3001/user/${currentUser}`)
+            .then((res) =>{
+                setData(res.data)
+            })
+            .catch((err) =>{
+                console.log(err)
+            })
+        }     
+    }
+
+    useEffect(() =>{
+        if(currentUser){
+            fetchData();
+        }
+    },[currentUser])
+
+
     return (
         <motion.div 
         // initial={{ y: -400 }} 

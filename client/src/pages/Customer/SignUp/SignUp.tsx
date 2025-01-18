@@ -26,7 +26,7 @@ const SignUp = () => {
         confirmPassword: ''
     })
 
-    const submitLogin = async (event: FormEvent<HTMLFormElement>) =>{
+    const submitSignup = async (event: FormEvent<HTMLFormElement>) =>{
         event.preventDefault();
 
         if(userDetails.password !== userDetails.confirmPassword){
@@ -59,7 +59,7 @@ const SignUp = () => {
         <div className="sign-up-container">
             <div className="sign-up-wrapper">
                 <h1 className="sign-up-header">Sign Up</h1>
-                <form onSubmit={submitLogin}>
+                <form onSubmit={submitSignup}>
                     {/* First Name and Last Name */}
                     <div className="row">
                         <div>

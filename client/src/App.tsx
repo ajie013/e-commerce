@@ -5,7 +5,7 @@ import './styles/App.css'
 import Shop from "./pages/Customer/Shop/Shop"
 import Login from "./pages/Customer/Login/Login"
 import SignUp from "./pages/Customer/SignUp/SignUp"
-
+import NotFound from "./pages/NotFound/NotFound"
 function App() {
  
   return (
@@ -18,6 +18,8 @@ function App() {
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/sign-up" element={<SignUp/>}></Route>
           </Route>
+
+          <Route path="*" element={<NotFound/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

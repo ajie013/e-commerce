@@ -6,6 +6,9 @@ import Shop from "./pages/Customer/Shop/Shop"
 import Login from "./pages/Customer/Login/Login"
 import SignUp from "./pages/Customer/SignUp/SignUp"
 import NotFound from "./pages/NotFound/NotFound"
+import ProductDetails from "./pages/Customer/Shop/ProductDetails"
+
+
 function App() {
  
   return (
@@ -17,6 +20,7 @@ function App() {
             <Route path="/shop" element={<Shop/>}></Route>
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/sign-up" element={<SignUp/>}></Route>
+            <Route path="/shop/product/:id" element={<ProductDetails/>}></Route>
           </Route>
 
           <Route path="*" element={<NotFound/>}></Route>

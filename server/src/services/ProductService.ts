@@ -8,4 +8,15 @@ const getProductListServ = async () =>{
     return list
 };
 
-export {getProductListServ}
+const getProductByIdServ = async (id: string) =>{
+    const prod = await prisma.product.findUnique({where: {productId : id}, include:{category: true}})
+
+    if(prod && prod.imageData){
+        prod.imageData = `http://localhost:3001/public/${prod.imageData}`
+    }
+
+    return prod
+  
+}
+
+export {getProductListServ, getProductByIdServ}

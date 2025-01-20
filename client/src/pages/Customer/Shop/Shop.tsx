@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import formatToPHP from '../../../utils/formatToPHP';
 import { p } from 'framer-motion/client';
+import { useNavigate } from 'react-router-dom';
 
 interface ProductType {
     productName: string;
@@ -16,6 +17,8 @@ interface ProductType {
 }
 
 const Shop: React.FC = () => {
+
+    const navigate = useNavigate()
     const [productList, setProductList] = useState<ProductType[]>([]);
 
     const fetchProduct = async () => {
@@ -31,11 +34,15 @@ const Shop: React.FC = () => {
         fetchProduct();
     }, []);
 
+    const ViewProduct = (id: string) =>{
+        navigate(`/shop/product/${id}`)
+    }
+
     return (
         <div className="shop-container">
             <div className="product-list-grid">
                 {productList.length > 0 ? productList.map((item) => (
-                    <div key={item.productId} className="product-item">
+                    <div key={item.productId} className="product-item" onClick={() => ViewProduct(item.productId)}>
                         <div className="product-image-wrapper">
                             <img src={item.imageData} alt={item.productName} />
                         </div>

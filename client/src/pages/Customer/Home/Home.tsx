@@ -16,22 +16,22 @@ interface productType{
 const Home: React.FC = () =>{
 
     const [productList, setProductList] = useState<productType[]>([]);
-    const fetchProduct =  async () =>{
-        try{
-            const response = await axios.get('http://localhost:3001/product-list')
-            setProductList(response.data)
-        }
-        catch(error){
-            console.log(error)
-        }  
+    // const fetchProduct =  async () =>{
+    //     try{
+    //         const response = await axios.get('http://localhost:3001/product-list')
+    //         setProductList(response.data)
+    //     }
+    //     catch(error){
+    //         console.log(error)
+    //     }  
         
-    };
+    // };
 
-    console.log(productList)
+  
 
-    useEffect(() =>{
-        fetchProduct();
-    },[])
+    // useEffect(() =>{
+    //     fetchProduct();
+    // },[])
 
 
     return(

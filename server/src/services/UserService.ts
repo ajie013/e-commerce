@@ -6,6 +6,12 @@ const getUserByIdServ = async (id: string) =>{
         include:{userdetails: true}
     });
 
+   
+     if (user && user.userdetails) {
+       
+        user.userdetails.imageData = `http://localhost:3001/public/${user.userdetails.imageData}`;
+    }
+
     return user
 };
 

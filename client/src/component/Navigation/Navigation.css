@@ -91,6 +91,79 @@
     /* border-radius: 5px; */
 }
 
+
+.navigation-container .right-section .user-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.navigation-container .cart-wrapper{
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.navigation-container .cart-wrapper .cart{
+    width: 20px;
+    color: black;
+    height: 20px;
+}
+.navigation-container .profile-wrapper{
+    width: 30px;
+    height: 30px;
+    padding: 1px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+   
+}
+.navigation-container .profile-wrapper img{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.profile-dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 100;
+    min-width: 150px;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-dropdown p {
+    padding: 10px 20px;
+    margin: 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-dropdown p:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
 @media  (min-width: 420px){
     .navigation-container .navigation-links-wrapper ul{
         gap: 10px;

@@ -1,33 +1,36 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "./pages/Customer/Home/Home"
-import CustomerLayout from "./layout/CustomerLayout"
-import './styles/App.css'
-import Shop from "./pages/Customer/Shop/Shop"
-import Login from "./pages/Customer/Login/Login"
-import SignUp from "./pages/Customer/SignUp/SignUp"
-import NotFound from "./pages/NotFound/NotFound"
-import ProductDetails from "./pages/Customer/Shop/ProductDetails"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Customer/Home/Home";
+import CustomerLayout from "./layout/CustomerLayout";
+import './styles/App.css';
+import { Suspense, lazy } from "react";
 
-
+// Lazy load the components
+const Shop = lazy(() => import('./pages/Customer/Shop/Shop'));
+const Login = lazy(() => import('./pages/Customer/Login/Login'));
+const SignUp = lazy(() => import('./pages/Customer/SignUp/SignUp'));
+const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
+const ProductDetails = lazy(() => import('./pages/Customer/Shop/ProductDetails'));
+const Cart = lazy(() => import('./pages/Customer/Cart/Cart'))
 function App() {
- 
   return (
     <> 
       <BrowserRouter>
-        <Routes>
-          <Route element={<CustomerLayout/>}>
-            <Route path="/" element={<Home/>}></Route>
-            <Route path="/shop" element={<Shop/>}></Route>
-            <Route path="/login" element={<Login/>}></Route>
-            <Route path="/sign-up" element={<SignUp/>}></Route>
-            <Route path="/shop/product/:id" element={<ProductDetails/>}></Route>
-          </Route>
-
-          <Route path="*" element={<NotFound/>}></Route>
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route element={<CustomerLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/shop/product/:id" element={<ProductDetails />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

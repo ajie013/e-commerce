@@ -1,0 +1,131 @@
+.cart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.cart-container .cart-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.cart-container .empty-cart {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.cart-container .cart-header,
+.cart-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-container .cart-header {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.cart-container .cart-item {
+    padding: 15px 0;
+}
+
+.cart-container .img-wrapper {
+    text-align: center;
+}
+
+.cart-container .product-image {
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: contain;
+}
+
+.cart-container .product-name {
+    font-size: 1rem;
+    color: #333;
+}
+
+.cart-container .product-price,
+.product-quantity {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+}
+
+.cart-container .actions {
+    text-align: center;
+}
+
+.cart-container .remove-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-container .remove-btn:hover {
+    background-color: #cc0000;
+}
+
+.cart-container .cart-footer {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.cart-container .total-label {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.cart-container .checkout-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-container .checkout-btn:hover {
+    background-color: #0056b3;
+}
+
+.cart-container .cart-header .header-item {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.cart-container .cart-header .header-product {
+    text-align: left;
+}
+
+.cart-container .cart-header .header-name {
+    text-align: left;
+}
+
+.cart-container .cart-header .header-price,
+.cart-header .header-quantity,
+.cart-header .header-actions {
+    text-align: center;
+}
+
+.cart-container .cart-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}

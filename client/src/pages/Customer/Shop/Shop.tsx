@@ -2,7 +2,6 @@ import './Shop.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import formatToPHP from '../../../utils/formatToPHP';
-import { p } from 'framer-motion/client';
 import { useNavigate } from 'react-router-dom';
 
 interface ProductType {
@@ -44,7 +43,7 @@ const Shop: React.FC = () => {
                 {productList.length > 0 ? productList.map((item) => (
                     <div key={item.productId} className="product-item" onClick={() => ViewProduct(item.productId)}>
                         <div className="product-image-wrapper">
-                            <img src={item.imageData} alt={item.productName} />
+                            <img src={item.imageData} loading='lazy' alt={item.productName} />
                         </div>
                         <span className="product-name">{item.productName}</span>
                         <span className="product-price">{formatToPHP(item.price)}</span>

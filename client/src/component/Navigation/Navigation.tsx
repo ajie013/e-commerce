@@ -71,7 +71,10 @@ const Navigation = () => {
                 {data ? (
                     <div className="user-wrapper">
                         <motion.div whileHover={{scale: 1.1}} transition={{duration: 0.5}} className="cart-wrapper">
-                            <PiShoppingCartSimpleFill className="cart" />
+                            <NavLink to="/cart">
+                                <PiShoppingCartSimpleFill className="cart" />
+                            </NavLink>
+                            
                         </motion.div>
                         <motion.div  whileTap={{scale: 0.9}} className="profile-wrapper" onClick={toggleDropdown}>
                             <img src={data?.imageData || userIcon} alt="Profile" />

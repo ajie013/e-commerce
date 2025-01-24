@@ -6,7 +6,10 @@ import './ProductDetail.css';
 import formatToPHP from '../../../utils/formatToPHP';
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import { IoReturnDownBackOutline } from "react-icons/io5";
- 
+import isTokenExist from '../../../utils/checkToken';
+
+
+
 interface ProductDetailsType {
   categoryId: string;
   imageData: string;
@@ -79,11 +82,24 @@ const ProductDetails = () => {
         navigate(`/shop/product/${id}`)
   }
 
+  // const checkToken = () =>{
+  //   const token = Cookies.get('token')
+
+  //   if(!token){
+  //     alert('You need to login first')
+  //     navigate('/login')
+  //     return 
+  //   } 
+    
+  // }
+
   const addToCart = () =>{
+
+    isTokenExist().catch(() => navigate('/login'));
     const result = cart.find(item => item.productId === details?.productId)
 
     if(result){
-        setCart(prev => prev.map((item : cartType) => item.productId === details?.productId ? {...item, quantity: item.quantity + 1} : item))
+        setCart(prev => prev.map((item : cartType) => item.productId === details?.productId ? {...item, quantity: item.quantity + 1} : item))     
     }
     else{
         if(details?.price && details.productId && details.productName){
@@ -93,12 +109,10 @@ const ProductDetails = () => {
                 quantity: 1,
                 price: details?.price,
                 imageData: details.imageData
-            }])
-        }
-      
+            }])       
+        } 
     }
   }
-  console.log(cart)
 
   return (
     <div className="product-details-container">

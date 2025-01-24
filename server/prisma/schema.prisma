@@ -22,7 +22,7 @@ model product {
   categoryId    String
   imageData     String
   category      category @relation(fields: [categoryId], references: [categoryId], map: "Product_categoryId_fkey")
-
+  orderitem orderItems[]
   @@index([categoryId], map: "Product_categoryId_fkey")
 }
 
@@ -35,6 +35,7 @@ model user {
   createdAt   DateTime
   updatedAt   DateTime
   userdetails userdetails?
+  myorder order[]
 }
 
 model userdetails {
@@ -49,3 +50,34 @@ model userdetails {
   user         user   @relation(fields: [userId], references: [userId], map: "UserDetails_userId_fkey")
 }
 
+model order{
+  orderId String @id @default(uuid())
+  userId String
+  user user @relation(fields: [userId], references: [userId])
+  orderDate DateTime
+  totalAmount Decimal @db.Decimal(14,2)
+  shippingCost Decimal @db.Decimal(14,2)
+  discount Decimal @db.Decimal(14,2)
+  status String
+  address String
+  paymentMethod String
+  orderitem orderItems[]
+}
+
+model orderItems{
+  orderItemId String @id @default(uuid())
+  orderId String
+  order order @relation(fields: [orderId], references: [orderId])
+  producId String
+  product product @relation(fields: [producId], references: [productId])
+  quantity Int
+  price Decimal @db.Decimal(14,2)
+}
+
+// model payment{
+//   paymentId String @id @default(uuid())
+//   orderId String @unique
+//   order order @relation(fields: [orderId], references: [orderId])
+//   paymentMethod String
+//   paymentDate DateTime
+// }

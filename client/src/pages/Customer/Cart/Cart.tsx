@@ -1,30 +1,43 @@
 import './Cart.css';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../../layout/CustomerLayout';
 import formatToPHP from '../../../utils/formatToPHP';
 import { FaTrash } from "react-icons/fa";
+import isTokenExist from '../../../utils/checkToken';
+import { useNavigate } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
-
+const Backdrop = lazy(() => import('../../../component/Backdrop/Backdrop'))
+const Payment = lazy(() => import('./Payment'))
 
 const Cart = () => {
     const cartContext = useContext(CartContext);
+    const navigate = useNavigate()
+    const [isShowPayment, setIsShowPayment] = useState<boolean>(false)
 
     if (!cartContext) {
         throw new Error('Cart must be used within a CartContext.Provider');
     }
 
+    useEffect(() =>{
+        isTokenExist().catch(() => navigate('/login'));
+    },[])
     const { cart, setCart } = cartContext;
 
     const removeItem = (id: string) => {
         setCart(cart.filter(item => item.productId !== id));
+        localStorage.setItem("cart", JSON.stringify(cart))
     };
 
     const calculateTotal = () => {
         return cart.reduce((total, item) => total + item.price * item.quantity, 0);
     };
-
+    const showPaymentModal = () =>{
+        setIsShowPayment(prev => !prev)
+    }
     return (
-        <div className="cart-container">
+        <>
+         <div className="cart-container">
             <h1 className="cart-title">Your Shopping Cart</h1>
 
             {cart.length === 0 ? (
@@ -57,11 +70,19 @@ const Cart = () => {
 
                     <div className="cart-footer">
                         <h2 className="total-label">Total: {formatToPHP(calculateTotal())}</h2>
-                        <button className="checkout-btn">Proceed to Checkout</button>
+                        <button className="checkout-btn" onClick={showPaymentModal}>Proceed to Checkout</button>
                     </div>
                 </>
             )}
-        </div>
+         </div>
+         {isShowPayment &&
+          <Suspense fallback={<div>Loading...</div>}>
+            <Backdrop Payment={Payment}></Backdrop>
+          </Suspense>
+         }
+        
+        </>
+       
     );
 };
 

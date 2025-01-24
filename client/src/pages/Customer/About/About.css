@@ -1,0 +1,112 @@
+/* General Styles */
+.about-container {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f8f9fa;
+    line-height: 1.8;
+}
+
+/* Hero Section */
+.about-hero {
+    text-align: center;
+    background: linear-gradient(135deg, #007bff, #6610f2);
+    color: white;
+    padding: 60px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.about-hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.about-hero p {
+    font-size: 1.2em;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+/* About Sections */
+.about-section {
+    background-color: white;
+    margin: 20px 0;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.about-section ul {
+    list-style: disc;
+    margin-left: 20px;
+    color: #555;
+}
+
+.about-section ul li {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+/* Call-to-Action Section */
+.about-cta {
+    text-align: center;
+    margin: 40px 0;
+    padding: 30px;
+    background: linear-gradient(135deg, #6610f2, #007bff);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-cta h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.about-cta p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: white;
+    color: #007bff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 2.5em;
+    }
+
+    .about-cta h2 {
+        font-size: 2em;
+    }
+
+    .about-section h2 {
+        font-size: 1.8em;
+    }
+}

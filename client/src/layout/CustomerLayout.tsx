@@ -58,6 +58,15 @@ const CustomerLayout = () => {
         getToken();
     }, []);
 
+    // useEffect(() => {
+        
+    //     let jsonCart = localStorage.getItem('cart')
+    //     if(jsonCart){
+    //         setCart(JSON.parse(jsonCart))
+    //     }
+     
+    // }, []);
+
     console.log(currentUser );
 
     return (

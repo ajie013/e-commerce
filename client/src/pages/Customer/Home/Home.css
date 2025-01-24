@@ -1,0 +1,99 @@
+.home-container {
+    padding: 20px;
+}
+
+.home-container  .hero {
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 50px 20px;
+    margin-bottom: 30px;
+}
+
+.home-container  .hero h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.home-container  .hero p {
+    font-size: 1.2em;
+    margin: 15px 0;
+    color: #555;
+}
+
+.home-container  .shop-now-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.home-container  .shop-now-btn:hover {
+    background-color: #0056b3;
+}
+
+.home-container  .featured-products {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.home-container  .featured-products h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.home-container  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.home-container  .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.home-container  .product-image {
+    max-width: 100%;
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.home-container  .product-card h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.home-container  .product-card p {
+    color: #555;
+    margin: 5px 0;
+}
+
+.home-container  .add-to-cart-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px; 
+}
+
+.add-to-cart-btn:hover {
+    background-color: #218838;
+}

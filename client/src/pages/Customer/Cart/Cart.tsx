@@ -22,11 +22,12 @@ const Cart = () => {
     useEffect(() =>{
         isTokenExist().catch(() => navigate('/login'));
     },[])
+
     const { cart, setCart } = cartContext;
 
     const removeItem = (id: string) => {
         setCart(cart.filter(item => item.productId !== id));
-        localStorage.setItem("cart", JSON.stringify(cart))
+       
     };
 
     const calculateTotal = () => {
@@ -77,7 +78,9 @@ const Cart = () => {
          </div>
          {isShowPayment &&
           <Suspense fallback={<div>Loading...</div>}>
-            <Backdrop Payment={Payment}></Backdrop>
+            <Backdrop>
+                <Payment total={calculateTotal()} setIsShowPayment={setIsShowPayment}/>
+            </Backdrop>
           </Suspense>
          }
         

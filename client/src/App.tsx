@@ -13,6 +13,7 @@ const ProductDetails = lazy(() => import('./pages/Customer/Shop/ProductDetails')
 const Cart = lazy(() => import('./pages/Customer/Cart/Cart'))
 const About = lazy(() => import('./pages/Customer/About/About'))
 const Contact = lazy(() => import('./pages/Customer/Contact/Contact'))
+const OrderHistory = lazy(() => import('./pages/Customer/OrderHistory/OrderHistory'))
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/about" element={<About />} />
+              <Route path="/order-history" element={<OrderHistory/>} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/shop/product/:id" element={<ProductDetails />} />
             </Route>

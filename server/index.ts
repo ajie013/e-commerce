@@ -8,7 +8,8 @@ import logger from './src/middleware/logger'
 import cookieParser from 'cookie-parser'
 import authRouter from './src/routes/AuthRouter'
 import userRouter from './src/routes/UserRouter'
-
+import paymentRouter from './src/routes/PaymentRouter'
+import orderRouter from './src/routes/OrderRouter'
 
 const app = express()
 const PORT = 3001
@@ -40,8 +41,10 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use(logger)
 app.use(userRouter)
+app.use(orderRouter)
 app.use(productRouter)
 app.use(authRouter)
+app.use(paymentRouter)
 
 app.listen(PORT, () =>{
     console.log(`Server is running at ${PORT}`)

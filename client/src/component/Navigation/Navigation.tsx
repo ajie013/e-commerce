@@ -80,8 +80,12 @@ const Navigation = () => {
                             <img src={data?.imageData || userIcon} alt="Profile" />
                             {dropdownVisible && (
                                 <div className="profile-dropdown">
-                                    <p>Profile</p>
-                                    <p>History</p>
+                                    <p>
+                                        <NavLink to="/profile">Profile</NavLink>
+                                    </p>
+                                    <p>
+                                        <NavLink to="/order-history">Order History</NavLink>
+                                    </p>
                                     <p>Logout</p>
                                 </div>
                             )}

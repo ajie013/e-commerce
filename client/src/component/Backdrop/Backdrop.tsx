@@ -2,14 +2,14 @@ import React from "react"
 import './Backdrop.css'
 
 interface backdropType{
-    Payment: React.FC
+    children: React.ReactNode
 }
 
-const Backdrop: React.FC<backdropType> = ({Payment}) =>{
+const Backdrop: React.FC<backdropType> = ({children}) =>{
     return(
         <>
             <div className="backdrop-container">
-                <Payment></Payment>            
+                {children}            
             </div>    
         </>
     )
